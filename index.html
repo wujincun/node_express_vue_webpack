@@ -5,8 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" v-model="">
+<div id="app">
+    <input type="text" v-model="message">
+    <span>{{message}}</span>
+    <button @click="clickMe">clickMe</button>
+</div>
 
 <script src="js/vue.min.js"></script>
+<script src="js/cart.js"></script>
 </body>
 </html>
