@@ -13,10 +13,10 @@ var DEVELOPMENT = process.env.NODE_ENV === 'development';
 var PRODUCTION = process.env.NODE_ENV === 'production';
 
 var entry = PRODUCTION
-    ? ['./src/js/main.js']
+    ? ['./src/common/js/main.js']
     : [
-    './src/js/main.js',
-    './src/style/main.less',
+    './src/main.js',
+    './src/common/style/main.less',
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8081'
 ];
@@ -27,7 +27,7 @@ var plugins = PRODUCTION
     new webpack.HotModuleReplacementPlugin(),
     //html 的配置
     new HtmlWebpackPlugin({
-        template: 'html-withimg-loader!' + path.resolve("src/index.html"),
+        template: 'html-withimg-loader!' + path.resolve("index.html"),
         filename: "index.html",
         inject: "body"
     }),
@@ -51,13 +51,13 @@ var plugins = PRODUCTION
         }
     }),
     // 压缩 js配置
-    new webpack.optimize.UglifyJsPlugin({
-     /*   sourceMap: true,
+  /*  new webpack.optimize.UglifyJsPlugin({
+     /!*   sourceMap: true,
         compress: {
             warnings: false,
             drop_console: false
-        }*/
-    })
+        }*!/
+    })*/
 ];
 /*???*/
 plugins.push(
